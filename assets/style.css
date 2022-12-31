@@ -1,0 +1,9 @@
+html {
+    height: 100%;
+}
+
+
+header {
+    display: inline;
+    text-align: right;
+}
