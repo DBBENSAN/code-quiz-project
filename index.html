@@ -11,36 +11,41 @@
 
 <body>
     <header>
-        <a href="" id="">View Scores</a>
+        <button id="see-highscore">View Scores</button>
         <p id="timeLeft"></p>
     </header>
     <main>
 
-        <div  class="card" id="info-card">
+
+        <!-- displays initial rules before quiz begins -->
+        <div  class="info-card">
             <h2 id="card-title">Coding Quiz Challenge</h2>
-            <ul> Quiz Rules
-                <li id="rule1">1: You will have a 2 minutes to complete the quiz</li>
-                <li id="rule4">2: Select the answer you think is correct</li>
-                <li id="rule3">3: Your selection cannot be undone.</li>
-                <li id="rule4">4: You cannot exit the quiz while playing</li>
+            <ul> Quiz Guide
+                <li class="rules">You will have a 1 minute to complete the quiz</li>
+                <li class="rules">You cannot exit the quiz while playing</li>
+                <li class="rules">Select the answer you think is correct</li>
+                <li class="rules">Your selection cannot be undone.</li>
+                <li class="rules">A mistake will subtract 5 seconds from the clock &#128580;</li>
+                <li class="rules">You will have a chance to save your score at the end</li>
             </ul>
+
             <button id="start-btn">Start Quiz</button>
+
         </div>
 
-        <div class="card" id="question-card">
+
+        <!-- displays question and options to user -->
+        <div class="question-card">
             <h2 class="question-title"></h2>
-            <ul>
+            <ul class="options-container">
                 <li class="option1"></li>
                 <li class="option2"></li>
                 <li class="option3"></li>
                 <li class="option4"></li>
             </ul>
-
         </div>
 
-        <div class="card">
-            <h2></h2>
-        </div>
+
     </main>
     <footer>
 

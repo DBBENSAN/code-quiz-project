@@ -1,12 +1,12 @@
 var quizBank = [
     {
-        question: "",
+        question: "How do you print defined items within the Console?",
         choices: {
-            a: "",
-            b: "",
-            c: ""
+            a: "console.log()",
+            b: "print()",
+            c: "return"
         },
-        answer: "b"
+        answer: "console.log()"
     },
     
     {
@@ -100,12 +100,16 @@ var quizBank = [
     },
 ]
 
-var start_btn = document.querySelector(".start-btn");
-var info_card = document.querySelector(".info_card");
-var info_card = document.querySelector(".info_card");
+
+var startBtn = document.querySelector(".start-btn");
+var infoCard = document.querySelector(".info_card");
+var questionCard = document.querySelector(".question-card");
+
+var defaultPage = function() {
+    questionCard.remove();
+}
+
 
 // document.querySelector
 
-start_btn.onclick = function() {
-    var hideRules = info_card.appendChild();
-}
+defaultPage();
