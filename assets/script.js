@@ -100,8 +100,12 @@ var quizBank = [
     },
 ]
 
-var score = 0;
+var start_btn = document.querySelector(".start-btn");
+var info_card = document.querySelector(".info_card");
+var info_card = document.querySelector(".info_card");
 
-function weeWoo() {
-    
+// document.querySelector
+
+start_btn.onclick = function() {
+    var hideRules = info_card.appendChild();
 }
