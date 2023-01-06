@@ -1,7 +1,7 @@
 // Quiz questions array
 var quizBank = [
     {
-        question: "How do you print defined items within the Console?",
+        question: "How do you print items within the Console?",
         choices: ["console.log()", "print()", "return", "Tom Holland"],
         answer: "console.log()"
     },
@@ -40,9 +40,9 @@ var quizBank = [
 var clickBtn = document.getElementById('click');
 var quizH1 = document.getElementById('quiz');
 var firstContainer = document.getElementById('first');
-var questionIndex = 0;
 var timeEl = document.getElementById('timer');
 var timeLeft = 60;
+var questionIndex = 0;
 
 
 var HighScores = [];
@@ -67,9 +67,9 @@ function setQuizQuestions() {
 
     for (var i = 0; i < quizBank[questionIndex].choices.length; i++) {
         var btn = document.createElement('button');
-
+        btn.value = quizBank[questionIndex].choices[i];
+        console.log(btn.value)
         btn.textContent = quizBank[questionIndex].choices[i];
-
         btn.setAttribute('class', 'btn');
 
         btn.addEventListener('click', checkAnswer);
@@ -77,10 +77,17 @@ function setQuizQuestions() {
     }
     firstContainer.append(h1, div);
     clickBtn.setAttribute('class', 'hide');
+    
 }
 
 function checkAnswer() {
-    console.log('You are now checking for an answer')
+    correctAnswer = quizBank[questionIndex].answer
+    if (correctAnswer === quizBank[questionIndex].answer) {
+        console.log("nice")
+    } else {
+        console.log("whoops");
+    }
+
     // var userChoice = 
     // if (quizBank[questionIndex] === quizBank[questionIndex].answer) {
     //     console.log("hello")
@@ -96,14 +103,13 @@ function checkAnswer() {
 
 function timerStart() {
     timerInterval = setInterval(function () {
-        timeLeft--;
-        timeEl.textContent = timeLeft;
-        if (timeLeft <= 0) {
-            timeEl.textContent = "";
-            clearInterval(timerInterval)
-            endQuiz();
-        }
-    }, 1000);
+        if (timeLeft > 0) {
+            timeLeft--;
+            timeEl.textContent = timeLeft;
+        } else {
+        clearInterval(timerInterval)
+        endQuiz();
+    } }, 1000);
 }
 
 function endQuiz() {
@@ -113,7 +119,10 @@ function endQuiz() {
 
     var div = document.createElement('div'); // creates a parent div
     var GameOver = document.createElement('h2');
+    GameOver.textContent = "Thanks for playing!";
+
     div.setAttribute('class', 'container') // setting attribute to created div
+    div.appendChild(GameOver);
 }
 
 
