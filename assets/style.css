@@ -1,8 +1,10 @@
+* {
+    margin: 5px;
+}
+
 html {
     height: 100%;
 }
-
-
 
 header {
     display: flex;
@@ -19,15 +21,17 @@ main {
     justify-content: center;
 }
 
-.hidden-card {
-    display: none;
+.hide{
+    display:none;
 }
 
-#choices-wrapper {
+.container {
     display: flex;
     flex-direction: column;
 }
 
-.choices {
-    margin: 5px;
+
+
+.btn{
+    background-color: aqua;
 }

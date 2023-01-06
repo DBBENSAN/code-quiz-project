@@ -10,60 +10,10 @@
 </head>
 
 <body>
-    <header>
-        <button id="see-highscore">View Scores</button>
-        <p id="timeLeft"></p>
-    </header>
-    <main>
-        <div id="info-card">
-            <h2 class="title">Javascript Quiz!</h2>
-            <ul class="quiz-rules">
-                <li>Try completing the quiz within the alloted time.</li>
-                <li>For each incorrect answer, the timer will be subtracted 5 seconds!</li>
-                <li>Press Start to begin, no back-sies!</li>
-            </ul>
-            <button id="start-btn">Start Quiz</button>
-        </div>
-
-        <!-- This is where the quiz will load .hidden -->
-        <div id="quest-card" class="hidden-card">
-
-            <h2 id="questionHead"></h2>
-
-            <ul id="choices-wrapper">
-
-                <button class="choices" id="choicesA"></button>
-                <button class="choices" id="choicesB"></button>
-                <button class="choices" id="choicesC"></button>
-                <button class="choices" id="choicesD"></button>
-
-            </ul>
-
-        </div>
-
-        <div id="questionOutcome"></div>
-
-        <!-- End game result-screen .hidden -->
-        <div id="gameEnd" class="hidden-card">
-            <h2>Nice!</h2>
-            <form>
-                
-            </form>
-
-        </div>
-        <div id="highScore" class="hidden-card">
-            <h2> High Scores </h2>
-            <div id="high_scores"></div>
-                <button>Go Back</button>
-                <button>Clear Scores</button>
-            </div>
-        </div>
-
-    </main>
-    <footer>
-
-    </footer>
-
+    <h1 id="quiz">Start Quiz</h1>
+    <h2 id="timer"></h2>
+    <div id="first"></div>
+    <button id="click">Click</button>
 
 
     <script src="./assets/script.js"></script>

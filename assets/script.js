@@ -1,7 +1,4 @@
 // Quiz questions array
-
-
-
 var quizBank = [
     {
         question: "How do you print defined items within the Console?",
@@ -40,108 +37,85 @@ var quizBank = [
     // },
 ]
 
-// init variables from html
-var startBtn = document.getElementById("start-btn");
-var infoCard = document.getElementById("info-card");
-var questionCard = document.getElementById("quest-card");
-var timerElement = document.getElementById("timeLeft");
-
-// variables for questions and gives buttons functionality to check if user made the correct choice
-var questionHead = document.getElementById("questionHead");
+var clickBtn = document.getElementById('click');
+var quizH1 = document.getElementById('quiz');
+var firstContainer = document.getElementById('first');
+var questionIndex = 0;
+var timeEl = document.getElementById('timer');
+var timeLeft = 60;
 
 
-var choiceA = document.getElementById("choicesA");
-var choiceB = document.getElementById("choicesB");
-var choiceC = document.getElementById("choicesC");
-var choiceD = document.getElementById("choicesD");
+var HighScores = [];
 
-var questionOutcome = document.getElementById("questionOutcome");
-
-choiceA.addEventListener("click", checkAnswer);
-choiceB.addEventListener("click", checkAnswer);
-choiceC.addEventListener("click", checkAnswer);
-choiceD.addEventListener("click", checkAnswer);
-
-
-
-var i = 0;
-
-// intialize variables for timer
-var timer;
-var timerCount;
-
-
-
-
-
+// create
+// add
+// append
 function startQuiz() {
-    console.log("quizStart");
-    timerCount = 6;
-    questionCard.style.display = "block";
-    infoCard.style.display = "none"; // 
-    // loadQuestion();
-    displayQuestions();
-    startTimer();
-
+    timerStart();
+    setQuizQuestions();
 }
 
 
-// function loadQuestion() {
-//     questionsArray = [];
-//     for (t = 0; t < quizBank.length; t++) {
-//         var questionsArray = quizBank[t];
-//         console.log(questionsArray);
-//         // return question
-//     }
-// }
+function setQuizQuestions() {
+    firstContainer.innerHTML = '';
+    quizH1.setAttribute('class', 'hide');
+    var h1 = document.createElement('h1');
+    var div = document.createElement('div');
+    div.setAttribute('class', 'container')
 
-function displayQuestions() {
-    console.log("We are here");
-    questionHead.textContent = quizBank[i].question;
-    choiceA.textContent = quizBank[i].choices[0];
-    choiceB.textContent = quizBank[i].choices[1];
-    choiceC.textContent = quizBank[i].choices[2];
-    choiceD.textContent = quizBank[i].choices[3];
+    h1.textContent = quizBank[questionIndex].question;
+
+    for (var i = 0; i < quizBank[questionIndex].choices.length; i++) {
+        var btn = document.createElement('button');
+
+        btn.textContent = quizBank[questionIndex].choices[i];
+
+        btn.setAttribute('class', 'btn');
+
+        btn.addEventListener('click', checkAnswer);
+        div.append(btn);
+    }
+    firstContainer.append(h1, div);
+    clickBtn.setAttribute('class', 'hide');
 }
 
 function checkAnswer() {
-    console.log("checkanswer!!!!")
-    var correctAnswer = quizBank[i].answer
-    console.log(correctAnswer)
-
-    // if (___ === correctAnswer) {
-
+    console.log('You are now checking for an answer')
+    // var userChoice = 
+    // if (quizBank[questionIndex] === quizBank[questionIndex].answer) {
+    //     console.log("hello")
     // }
+
+    if (questionIndex >= quizBank.length - 1) {
+        endQuiz();
+    } else {
+        questionIndex++;
+        setQuizQuestions();
+    }
+}
+
+function timerStart() {
+    timerInterval = setInterval(function () {
+        timeLeft--;
+        timeEl.textContent = timeLeft;
+        if (timeLeft <= 0) {
+            timeEl.textContent = "";
+            clearInterval(timerInterval)
+            endQuiz();
+        }
+    }, 1000);
+}
+
+function endQuiz() {
+    console.log("reached end of quiz");
+
+    firstContainer.innerHTML = ''; //clears content on the screen
+
+    var div = document.createElement('div'); // creates a parent div
+    var GameOver = document.createElement('h2');
+    div.setAttribute('class', 'container') // setting attribute to created div
 }
 
 
 
-    // https://developer.mozilla.org/en-US/docs/Web/API/setInterval
-    function startTimer() {
-        timer = setInterval(function () {
-            timerCount--;
-            timerElement.textContent = "Time remaining: " + timerCount;
-            //   if (timerCount >= 0) {
-
-            //     if (isWin && timerCount > 0) {
-
-            //       clearInterval(timer);
-            //       winGame();
-            //     }
-            //   }
-            // Tests if time has run out
-            if (timerCount === 0) { // add || "When the user has reached the end of quiz"
-                clearInterval(timer);
-                console.log(timer);
-                endGame();
-            }
-        }, 1000);
-    }
-
-    // function endGame() {
-    //     var totalPts = 
-    // }
-
-
-    startBtn.addEventListener("click", startQuiz);
-
+clickBtn.addEventListener('click', startQuiz);
