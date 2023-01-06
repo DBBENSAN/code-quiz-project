@@ -19,7 +19,7 @@ In order to familiarize myself with dynamically adding elements to the web pages
 
 
 ## Demo
-![DemoGif]()
+![DemoGif](https://github.com/DBBENSAN/code-quiz-project/blob/main/assets/images/CodingQuiz.gif)
 
 
 
