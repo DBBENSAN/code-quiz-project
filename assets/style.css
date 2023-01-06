@@ -18,3 +18,16 @@ main {
 .start-btn {
     justify-content: center;
 }
+
+.hidden-card {
+    display: none;
+}
+
+#choices-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.choices {
+    margin: 5px;
+}
